@@ -1,18 +1,38 @@
-class Person {
-    #ssn;  // Private field
+function createPerson(name, age) {
+    // Private variables
+    let _name = name;
+    let _age = age;
 
-    constructor(name, age, ssn) {
-        this.name = name;
-        this.age = age;
-        this.#ssn = ssn;
-    }
-
-    getSSN() {
-        return `SSN: ${this.#ssn}`;
-    }
+    return {
+        // Public method to get the name
+        getName: function() {
+            return _name;
+        },
+        // Public method to set the name
+        setName: function(newName) {
+            _name = newName;
+        },
+        // Public method to get the age
+        getAge: function() {
+            return _age;
+        },
+        // Public method to set the age
+        setAge: function(newAge) {
+            if (newAge > 0) {
+                _age = newAge;
+            } else {
+                console.log('Please enter a valid age.');
+            }
+        }
+    };
 }
 
-const bob = new Person('Bob', 40, '123-45-6789');
-console.log(bob.name);    // Output: Bob
-console.log(bob.getSSN());  // Output: SSN: 123-45-6789
-// console.log(bob.#ssn);   // Error: Private field '#ssn' must be declared in an enclosing class
+const person = createPerson('John', 30);
+
+console.log(person.getName());  // Output: John
+person.setName('Alice');
+console.log(person.getName());  // Output: Alice
+
+console.log(person.getAge());  // Output: 30
+person.setAge(25);
+console.log(person.getAge());  // Output: 25

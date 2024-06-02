@@ -1,11 +1,11 @@
 function changeText() {
     const textElement = document.getElementById('textElement');
-    textElement.innerText = 'New text';
+    textElement.innerText = 'This is innerText';
 }
 
 function changeHTML() {
     const htmlElement = document.getElementById('htmlElement');
-    htmlElement.innerHTML = 'New <em>HTML</em>';
+    htmlElement.innerHTML = 'This is <em>inner HTML</em>';
 }
 
 function changeStyle() {
